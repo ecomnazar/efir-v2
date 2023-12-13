@@ -5,12 +5,14 @@ export interface IPost {
   description: TString;
   id: TString;
   images: TString[];
+  video?: TString; 
   is_commentable: TBoolean;
   liked: TBoolean;
   likes: TNumber;
   saved: TBoolean;
   tags: TString;
   updated_at: TString;
+  type?: TString;
   user: {
     id: TString;
     username: TString;

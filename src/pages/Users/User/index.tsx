@@ -48,8 +48,8 @@ const User = () => {
         <img className="w-[200px] h-[200px] rounded-lg object-cover object-center" src={user?.avatar} alt="" />
         <div>
           <div className="flex items-center gap-x-2">
-            <button className="bg-primaryColor text-whiteColor px-4 py-2 rounded-md text-sm" onClick={addPost}>add photo</button>
-            <button className="bg-green-300 text-whiteColor px-4 py-2 rounded-md text-sm" onClick={addPost}>add video</button>
+            <button className="bg-primaryColor text-whiteColor px-4 py-2 rounded-md text-sm" onClick={addPost}>add post</button>
+            {/* <button className="bg-green-300 text-whiteColor px-4 py-2 rounded-md text-sm" onClick={addPost}>add video</button> */}
           </div>
           <h1 className="text-[34px] font-bold">{user?.username}</h1>
           <h2>Number: {user?.phone_number}</h2>

@@ -20,7 +20,7 @@ const Posts = () => {
       <h1 className="text-[20px] font-medium mb-2">Posts</h1>
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 xl:grid-cols-8 gap-4">
         {posts?.map((elem: IPost) => {
-          return <PostsGrid key={elem.id} post={elem} />;
+          return <PostsGrid key={elem.id} post={elem} />
         })}
       </div>
     </div>

@@ -29,6 +29,8 @@ const AddStoryModal = () => {
     formData.append("type", isPhoto ? "image" : "video");
     formData.append("link", linkInputRef.current?.value!);
     await dispatch(addStory({ formData }));
+    console.log(isPhoto);
+    
     setLoading(false);
   };
 
@@ -67,6 +69,7 @@ const AddStoryModal = () => {
                   onChange={(e) => selectImage(e)}
                   className=""
                   type="file"
+                  accept="image/*, video/*"
                 />
               </div>
               <div className="relative h-[400px] rounded-lg flex cursor-pointer border-2 border-darkGreyColor overflow-hidden">
@@ -80,10 +83,11 @@ const AddStoryModal = () => {
                     </h1>
                   )}
                   {image && (
-                    <img
+                    <video
                       className="w-full h-full object-cover object-center"
                       src={URL.createObjectURL(image)}
-                      alt=""
+                      // alt=""
+                      controls
                     />
                   )}
                 </label>

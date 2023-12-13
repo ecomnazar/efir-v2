@@ -22,11 +22,13 @@ const PostsGrid = ({ post }: IPostsGrid) => {
       className="h-[165px] rounded-lg overflow-hidden cursor-pointer"
     >
       <div className="relative h-full overflow-hidden">
-        <img
+        {post.type === 'video' ? <video className="object-cover object-center w-full h-full"
+          src={post?.video} controls /> : <img
           className="object-cover object-center w-full h-full"
           src={post?.images[0]}
           alt="post"
-        />
+        />}
+
         <div className="w-full px-2 h-[30px] bg-primaryColor text-whiteColor absolute bottom-0 left-0 flex items-center justify-between">
           <h1 className="text-[11px]">
             {dateformat(post?.created_at, "mmmm dd")}

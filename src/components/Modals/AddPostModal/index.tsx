@@ -8,12 +8,14 @@ import { LuFilePlus } from "react-icons/lu";
 import { IUser } from "../../../interfaces/IUser";
 import { useParams } from "react-router-dom";
 import { TNumber, TString } from "../../../interfaces/IGlobal";
+import SwitchButton from "../../Elements/SwitchButton";
 
 const AddPostModal = () => {
   const dispatch = useAppDispatch();
   const [loading, setLoading] = React.useState(false);
   const isOpen = useAppSelector((state) => state.posts.modals.addPostModal);
   const [image, setImage] = React.useState<Blob | MediaSource | any>([]);
+  const [isPhoto, setIsPhoto] = React.useState(true)
   const handleCloseModal = () => {
     dispatch(showAddPostModal());
   };
@@ -33,18 +35,20 @@ const AddPostModal = () => {
     const id = idFromPath ? idFromPath : e.target["select"].value;
     const formData = new FormData();
     formData.append("user", id);
-    for (let index = 0; index < image.length; index++) {
-      formData.append(`image_${index + 1}`, image[index]);
+    if(isPhoto){
+      for (let index = 0; index < image.length; index++) {
+        formData.append(`image_${index + 1}`, image[index]);
+      }
+    } else {
+      formData.append("video", image[0])
     }
-    // 78f5eac3-026d-44c9-a08f-822c2f57fac1
     // formData.append("image_1", image);
-    // formData.append("image_2", image);
     // formData.append('image_2', image)
     // formData.append('image_3', image)
     formData.append("description", description);
     formData.append("tags", tags);
     formData.append("is_commentable", "False");
-
+    
     await dispatch(addPost({ formData }));
     setLoading(false);
     dispatch(showAddPostModal());
@@ -66,6 +70,16 @@ const AddPostModal = () => {
           className="flex flex-col gap-y-4"
           onSubmit={(e) => handleClick(e)}
         >
+          <div className="flex items-start justify-between">
+              <h1 className="text-darkGreyColor font-bold mb-2 text-xl">
+                Add Story
+              </h1>
+              <div className="flex items-center gap-x-2">
+                <h3 className="text-black">VIDEO</h3>
+                <SwitchButton enabled={isPhoto} handleChange={() => setIsPhoto((prev) => !prev)} />
+                <h3 className="text-black">PHOTO</h3>
+              </div>
+            </div>
           <div className="hidden">
             <input
               id="file"
@@ -89,7 +103,7 @@ const AddPostModal = () => {
           </div>
 
           {/* dat created because of directly image can not mapped */}
-          {dat &&
+          {isPhoto ? dat &&
             dat.map((elem: any) => {
               return (
                 <img
@@ -98,7 +112,7 @@ const AddPostModal = () => {
                   alt=""
                 />
               );
-            })}
+            }) : <video src={URL.createObjectURL(image[0])} controls />}
 
           <input
             name="description"

@@ -81,7 +81,7 @@ const GetPostModal = () => {
             )}
             <div className="flex items-center gap-x-2"></div>
 
-            {post?.images?.map((elem) => {
+              {post?.type === 'video' ? <video src={post?.video} controls /> : post?.images?.map((elem) => {
               return (
                 <img
                   className="w-full aspect-square object-cover object-center mt-4 mx-auto"

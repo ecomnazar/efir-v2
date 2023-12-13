@@ -7,6 +7,8 @@ import toast from "react-hot-toast";
 
 export const getPosts = createAsyncThunk('getPosts', async () => {
     const response = await instanceSecond.get(`${API_ENDPOINTS.POSTS}`)
+    console.log(response.data);
+    
     return response.data
 })
 
