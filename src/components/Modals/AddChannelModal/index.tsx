@@ -4,8 +4,7 @@ import { useAppDispatch } from "../../../hooks/useAppDispatch";
 import { useAppSelector } from "../../../hooks/useAppSelector";
 import MainModal from "../MainModal";
 import Button from "../../Elements/Button";
-import { addCategory } from "../../../services/Categories";
-import { addChannel, getChannels, showAddChannelModal } from "../../../services/Channels";
+import { addChannel, showAddChannelModal } from "../../../services/Channels";
 import Loading from "../../Loading";
 import { LuFilePlus } from 'react-icons/lu'
 

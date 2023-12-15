@@ -3,7 +3,6 @@ import { useAppDispatch } from "../../../hooks/useAppDispatch";
 // import { addAdmins, closeAddAdminModal } from "../../../services/AdminSlice";
 import { useAppSelector } from "../../../hooks/useAppSelector";
 import MainModal from "../MainModal";
-import { addAdmin, showAddAdminModal } from "../../../services/Admins";
 import Button from "../../Elements/Button";
 import { addCategory, showAddCategoryModal } from "../../../services/Categories";
 

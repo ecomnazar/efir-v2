@@ -1,7 +1,7 @@
 import { PayloadAction, createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { instance, instanceSecond } from "../Api/Interceptor";
 import { API_ENDPOINTS } from "../../constants/ApiEndpoints";
-import { TBoolean, TNumber, TString } from "../../interfaces/IGlobal";
+import { TBoolean, TNumber } from "../../interfaces/IGlobal";
 import { IChannel } from "../../interfaces/IChannel";
 import toast from "react-hot-toast";
 
@@ -116,7 +116,7 @@ const channelSlice = createSlice({
             .addCase(addChannel.pending, (state) => {
                 state.channels.loading = true
             })
-            .addCase(addChannel.fulfilled, (state, action: PayloadAction<IChannel>) => {
+            .addCase(addChannel.fulfilled, (state) => {
                 state.channels.loading = false
                 // state.channels.data = action.payload
                 state.modals.addChannelModal = false

@@ -1,21 +1,17 @@
 import React from "react";
 import { useAppDispatch } from "../../hooks/useAppDispatch";
 import {
-  addStory,
   getStories,
   showAddStoryModal,
 } from "../../services/Stories";
-import { useForm } from "react-hook-form";
 import { useAppSelector } from "../../hooks/useAppSelector";
-import { LuFilePlus } from "react-icons/lu";
 import { getChannels } from "../../services/Channels";
 import dateFormat from 'dateformat'
 import clsx from "clsx";
 
 const Stories = () => {
   const dispatch = useAppDispatch();
-  const [image, setImage] = React.useState<Blob | MediaSource | any>();
-  const { handleSubmit } = useForm();
+  // const [image] = React.useState<Blob | MediaSource | any>();
   const stories = useAppSelector((state) => state.stories.stories.data);
   const channelPage = useAppSelector((state) => state.channels.channels.page);
   const channelsLength = useAppSelector(
@@ -27,13 +23,13 @@ const Stories = () => {
     dispatch(getStories());
   }, []);
 
-  const submit = () => {
-    const formData = new FormData();
-    formData.append("image", image);
-    formData.append("channel", "10");
-    formData.append("type", "image");
-    dispatch(addStory({ formData }));
-  };
+  // const submit = () => {
+  //   const formData = new FormData();
+  //   formData.append("image", image);
+  //   formData.append("channel", "10");
+  //   formData.append("type", "image");
+  //   dispatch(addStory({ formData }));
+  // };
 
   const openAddStoryModal = () => {
     dispatch(showAddStoryModal());

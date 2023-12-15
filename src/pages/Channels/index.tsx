@@ -1,7 +1,7 @@
 import React from "react";
 import { useAppDispatch } from "../../hooks/useAppDispatch";
 import { useAppSelector } from "../../hooks/useAppSelector";
-import { changeChannelPage, deleteChannel, getChannels, getChannelsToPost, openActiveChannelModal, showAddChannelModal } from "../../services/Channels";
+import { getChannels, getChannelsToPost, openActiveChannelModal, showAddChannelModal } from "../../services/Channels";
 import { IChannel } from "../../interfaces/IChannel";
 import { FaPlus } from 'react-icons/fa'
 import { getCategories } from "../../services/Categories";
@@ -15,7 +15,6 @@ const Channels = () => {
   const channelsLength: TNumber | null = useAppSelector((state) => state.channels.channels.dataLength)
   const page = useAppSelector((state) => state.channels.channels.page)
   const [loading, setLoading] = React.useState(false)
-  const [active, setActive] = React.useState(0)
 
 
   const openAddChannelModal = () => {
@@ -31,9 +30,9 @@ const Channels = () => {
     setLoading(false)
   }
 
-  const remove = async (id: TNumber) => {
-    await dispatch(deleteChannel({ id }))
-  }
+  // const remove = async (id: TNumber) => {
+  //   await dispatch(deleteChannel({ id }))
+  // }
 
   const handleClick = (elem: IChannel) => {
     dispatch(openActiveChannelModal(elem))

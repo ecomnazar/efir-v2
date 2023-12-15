@@ -4,12 +4,7 @@ import { useAppDispatch } from "../../../hooks/useAppDispatch";
 import { useAppSelector } from "../../../hooks/useAppSelector";
 import MainModal from "../MainModal";
 import Button from "../../Elements/Button";
-import { addCategory } from "../../../services/Categories";
-import {
-  addChannel,
-  getChannels,
-  showAddChannelModal,
-} from "../../../services/Channels";
+
 import Loading from "../../Loading";
 import { LuFilePlus } from "react-icons/lu";
 import { addUserAsChannel, closeAddUserModal } from "../../../services/Users";
@@ -24,9 +19,7 @@ const AddUserAsChannelModal = () => {
   const loadingCategory = useAppSelector(
     (state) => state.categories.categories.loading
   );
-  const categories = useAppSelector(
-    (state) => state.categories.categories.data
-  );
+
   const [image, setImage] = React.useState<Blob | MediaSource | any>();
   const cities = useAppSelector((state) => state.users.cities.data);
   const regions = useAppSelector((state) => state.users.regions.data);

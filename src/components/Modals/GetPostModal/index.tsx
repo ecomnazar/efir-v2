@@ -13,7 +13,6 @@ import { FcLike } from "react-icons/fc";
 import { useNavigate } from "react-router-dom";
 import Button from "../../Elements/Button";
 import { IAddPost } from "../../../interfaces/IPost";
-import { useForm } from "react-hook-form";
 
 const GetPostModal = () => {
   const dispatch = useAppDispatch();

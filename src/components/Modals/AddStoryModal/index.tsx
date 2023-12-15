@@ -6,7 +6,6 @@ import Button from "../../Elements/Button";
 import Loading from "../../Loading";
 import { addStory, showAddStoryModal } from "../../../services/Stories";
 import SwitchButton from "../../Elements/SwitchButton";
-import { TString } from "../../../interfaces/IGlobal";
 
 const AddStoryModal = () => {
   const dispatch = useAppDispatch();

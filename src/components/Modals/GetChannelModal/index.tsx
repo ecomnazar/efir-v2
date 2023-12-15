@@ -8,7 +8,6 @@ import {
   deleteChannel,
   editChannel,
 } from "../../../services/Channels";
-import { IChannel } from "../../../interfaces/IChannel";
 
 const GetChannelModal = () => {
   const dispatch = useAppDispatch();

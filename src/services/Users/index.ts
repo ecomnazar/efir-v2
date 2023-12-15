@@ -49,6 +49,7 @@ export const addUserAsChannel = createAsyncThunk(
         "Content-Type": "multipart/form-data",
       },
     });
+    return response.data
   }
 );
 

@@ -4,10 +4,8 @@ import { useAppSelector } from "../../../hooks/useAppSelector";
 import MainModal from "../MainModal";
 import Button from "../../Elements/Button";
 import { addPost, showAddPostModal } from "../../../services/Posts";
-import { LuFilePlus } from "react-icons/lu";
 import { IUser } from "../../../interfaces/IUser";
 import { useParams } from "react-router-dom";
-import { TNumber, TString } from "../../../interfaces/IGlobal";
 import SwitchButton from "../../Elements/SwitchButton";
 
 const AddPostModal = () => {

@@ -1,4 +1,3 @@
-import React from 'react'
 import { getToken } from '../../helpers/Token'
 import { Navigate, Outlet } from 'react-router-dom'
 

@@ -1,5 +1,4 @@
 import clsx from "clsx";
-import { FaHome } from "react-icons/fa";
 import { TString } from "../../../interfaces/IGlobal";
 import { NavLink } from "react-router-dom";
 

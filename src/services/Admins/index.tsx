@@ -76,7 +76,7 @@ const adminSlice = createSlice({
                 state.admins.loading = false
                 state.admins.data = action.payload
             })
-            .addCase(addAdmin.pending, (state) => {
+            .addCase(addAdmin.pending, () => {
                 // state.admins.loading = true
             })
             .addCase(addAdmin.fulfilled, (state, action: PayloadAction<IAdmin>) => {

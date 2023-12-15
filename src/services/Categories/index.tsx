@@ -17,6 +17,7 @@ export const addCategory = createAsyncThunk('addCategory', async ({ name }: { na
 
 export const updateCategory = createAsyncThunk('updateCategory', async ({ data }: { data: { id: TNumber; name: TString } }) => {
     const response = await instanceSecond.patch(`${API_ENDPOINTS.CATEGORY}`, data)
+    return response.data
 })
 
 export const deleteCategory = createAsyncThunk('deleteCategory', async ({ id }: { id: TNumber }) => {
@@ -24,6 +25,7 @@ export const deleteCategory = createAsyncThunk('deleteCategory', async ({ id }: 
         id
     }
     const response = await instanceSecond.delete(`${API_ENDPOINTS.CATEGORY}`, { data })
+    return response.data
 })
 
 interface IInitialState {
@@ -63,7 +65,7 @@ const categorySlice = createSlice({
                 state.categories.loading = false
                 state.categories.data = action.payload.results
             })
-            .addCase(addCategory.pending, (state) => {
+            .addCase(addCategory.pending, () => {
                 // state.admins.loading = true
             })
             .addCase(addCategory.fulfilled, (state, action: PayloadAction<ICategory>) => {
